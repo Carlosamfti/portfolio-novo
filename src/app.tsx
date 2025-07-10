@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster as Sonner } from "sonner"; // Usaremos apenas o Sonner para notificações
 
 // Componente de UI instalado via Shadcn
-import { TooltipProvider } from "@/Components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Seus componentes de página
 import Index from "./Components/pages/Index";
