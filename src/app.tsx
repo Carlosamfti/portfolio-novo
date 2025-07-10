@@ -7,9 +7,9 @@ import { Toaster as Sonner } from "sonner"; // Usaremos apenas o Sonner para not
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Seus componentes de página
-import Index from "./Components/pages/Index";
-import Contact from "./Components/pages/Contact";
-import NotFound from "./Components/pages/NotFound";
+import Index from "./components/pages/Index";
+import Contact from "./components/pages/Contact";
+import NotFound from "./components/pages/NotFound";
 
 // Crie o cliente do React Query
 const queryClient = new QueryClient();
