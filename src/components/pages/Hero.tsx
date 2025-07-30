@@ -1,72 +1,128 @@
-import { ArrowRight, Code, Database, Users } from "lucide-react";
+import { ArrowRight, AppWindow, Target, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  // --- Nossas cores do Guia da Marca ---
+  const colors = {
+    azulVector: "#0D2C54",
+    verdeLeap: "#00A878",
+    cinzaNeutro: "#f5f5f5",
+    textoPrincipal: "#333333", // Um cinza escuro para melhor legibilidade
+  };
+
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById("contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const scrollToServices = () => {
-    const element = document.getElementById('services');
+    const element = document.getElementById("services");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="home" className="pt-20 pb-16 px-4">
+    // --- 1. ID e Fundo Atualizados ---
+    <section
+      id="home"
+      className="py-20 lg:py-32"
+      style={{ backgroundColor: colors.cinzaNeutro }}
+    >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-6">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-              Carlos Augusto
+          <div className="mb-12">
+            {/* --- 2. Título (UVP) e Subtítulo (Bio) Atualizados --- */}
+            <h1
+              className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+              style={{ color: colors.azulVector }}
+            >
+              Transformando a complexidade do seu negócio em crescimento
+              direcionado
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-4">
-              Especialista em TI & Construção de Sites
-            </p>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
-              Transformo ideias em soluções digitais. Com mais de 15 anos de experiência em tecnologia 
-              e formação em Sistemas de Informação, ofereço consultoria em TI e desenvolvimento de sites profissionais.
+            <p
+              className="text-lg md:text-xl text-gray-700"
+              style={{ color: colors.textoPrincipal }}
+            >
+              Atuamos como o navegador que te guia com precisão, transformando
+              dados em decisões inteligentes, processos em produtividade e
+              ideias em crescimento concreto
             </p>
           </div>
-
+          {/* --- 3. Botões (CTAs) com Novas Cores e Texto --- */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={scrollToContact}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
+              className="text-white px-8 py-4 text-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+              style={{ backgroundColor: colors.verdeLeap }}
             >
-              Fale Comigo
+              Vamos conversar
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               onClick={scrollToServices}
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg"
+              className="px-8 py-4 text-lg font-semibold shadow-sm transition-colors text-[#0D2C54] hover:bg-[#0D2C54] hover:text-white"
+              style={{
+                borderColor: colors.azulVector,
+              }}
             >
               Ver Serviços
             </Button>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <Code className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Desenvolvimento</h3>
-              <p className="text-gray-600">Sites e sistemas personalizados</p>
+          {/* --- 4. Seção de Ícones com Novos Títulos --- */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center p-4">
+              <AppWindow
+                className="h-12 w-12 mx-auto mb-4"
+                style={{ color: colors.azulVector }}
+              />
+              <h3
+                className="text-xl font-bold mb-2"
+                style={{ color: colors.azulVector }}
+              >
+                Websites e Sistemas
+              </h3>
+              <p style={{ color: colors.textoPrincipal }}>
+                Desenvolvimento de sites e sistemas personalizados para conectar
+                sua marca ao mundo.
+              </p>
             </div>
-            <div className="text-center">
-              <Database className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Ciência de Dados</h3>
-              <p className="text-gray-600">Análise e insights para seu negócio</p>
+            <div className="text-center p-4">
+              <Target
+                className="h-12 w-12 mx-auto mb-4"
+                style={{ color: colors.azulVector }}
+              />
+              <h3
+                className="text-xl font-bold mb-2"
+                style={{ color: colors.azulVector }}
+              >
+                Dashboards e Dados
+              </h3>
+              <p style={{ color: colors.textoPrincipal }}>
+                Transformação de dados brutos em dashboards interativos para
+                decisões inteligentes.
+              </p>
             </div>
-            <div className="text-center">
-              <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Consultoria</h3>
-              <p className="text-gray-600">Suporte técnico especializado</p>
+            <div className="text-center p-4">
+              <ClipboardList
+                className="h-12 w-12 mx-auto mb-4"
+                style={{ color: colors.azulVector }}
+              />
+              <h3
+                className="text-xl font-bold mb-2"
+                style={{ color: colors.azulVector }}
+              >
+                Produtividade e Notion
+              </h3>
+              <p style={{ color: colors.textoPrincipal }}>
+                Organização de processos e equipes com sistemas de produtividade
+                sob medida.
+              </p>
             </div>
           </div>
         </div>

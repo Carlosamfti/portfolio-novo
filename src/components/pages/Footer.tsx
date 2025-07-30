@@ -1,51 +1,100 @@
-import { Code, Heart } from "lucide-react";
+import {
+  Linkedin,
+  Instagram,
+  Github,
+  Facebook,
+  MessageCircle,
+} from "lucide-react";
 
 const Footer = () => {
+  const navLinks = [
+    { href: "#home", label: "Início" },
+    { href: "#services", label: "Serviços" },
+    { href: "#about", label: "Sobre" },
+    { href: "#portfolio", label: "Portfólio" },
+    { href: "#contact", label: "Contato" },
+  ];
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://linkedin.com/company/vectorleaptech",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://instagram.com/vectorleap.tech",
+    },
+
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://facebook.com/VectorLeap",
+    },
+
+    {
+      name: "Whastapp",
+      icon: MessageCircle,
+      url: "https://wa.me/5532999568858",
+    },
+  ];
+
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-800 text-white py-12 px-4">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer id="footer" className="bg-verde-leap text-white">
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 text-center md:text-left">
+          {/* Coluna 1: Marca e Slogan */}
+          <div className="lg:col-span-2 space-y-4">
+            <h3 className="text-3xl font-bold">VectorLeap</h3>
+            <p className="text-gray-200">Seu vetor de crescimento digital.</p>
+          </div>
+
+          {/* Coluna 2: Navegação */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Carlos Augusto</h3>
-            <p className="text-gray-300 mb-4">
-              Especialista em TI e Desenvolvimento Web, transformando ideias em soluções digitais inovadoras.
-            </p>
-            <div className="flex items-center text-gray-300">
-              <Code className="h-4 w-4 mr-2" />
-              <span className="text-sm">Desenvolvido com tecnologias modernas</span>
+            <h4 className="font-bold text-lg mb-4">Navegue</h4>
+            <nav className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="hover:underline underline-offset-4"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Coluna 3: Redes Sociais */}
+          <div>
+            <h4 className="font-bold text-lg mb-4">Conecte-se</h4>
+            <div className="flex justify-center md:justify-start space-x-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={social.name}
+                >
+                  <social.icon className="h-7 w-7 hover:scale-110 transition-transform" />
+                </a>
+              ))}
             </div>
           </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Serviços</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>Desenvolvimento de Sites</li>
-              <li>Sistemas Personalizados</li>
-              <li>Consultoria em TI</li>
-              <li>Suporte Técnico</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>carlos.augusto@email.com</li>
-              <li>(11) 99999-9999</li>
-              <li>Brasil</li>
-            </ul>
-          </div>
         </div>
-        
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <div className="flex items-center justify-center text-gray-300">
-            <span>Feito com</span>
-            <Heart className="h-4 w-4 mx-2 text-red-500 fill-current" />
-            <span>por Carlos Augusto © 2024</span>
-          </div>
+      </div>
+
+      {/* Barra de Copyright */}
+      <div className="bg-black bg-opacity-20">
+        <div className="container mx-auto px-4 py-4 text-center text-sm text-gray-300">
+          © {currentYear} VectorLeap. Todos os direitos reservados.
         </div>
       </div>
     </footer>
   );
 };
-
 export default Footer;

@@ -1,143 +1,156 @@
-import { Github,ExternalLink } from "lucide-react";
+import { Github, ExternalLink, BookText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const Portfolio = () => {
+  // --- 1. SEUS PROJETOS REAIS ADICIONADOS AQUI ---
   const projects = [
     {
-      title: "Sistema de Gestão Hospitalar",
-      description: "Plataforma completa para gestão de prontuários eletrônicos e agendamentos médicos.",
-      tech: ["React", "Node.js", "PostgreSQL", "API REST"],
-      category: "Sistema Web",
-      githubUrl: "https://github.com/seu-usuario/link-do-projeto-hospitalar"
+      title: "VectorLeap (Este Site)",
+      category: "Website Institucional",
+      imageUrl: "/images/portfolio/Embreve.png", // <--- ADICIONE UM PRINT DO SEU SITE AQUI
+      description: `Desenvolvimento da identidade visual e website da VectorLeap, 
+      com foco em performance e design responsivo, utilizando as tecnologias mais modernas do mercado.`,
+      tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
+      liveUrl: "https://www.vectorleap.com.br",
+      githubUrl: "https://github.com/Carlosamfti/portfolio-novo",
+      caseStudyUrl: "#", // <--- ADICIONE O LINK DO SEU BEHANCE AQUI
     },
     {
-      title: "E-commerce Responsivo",
-      description: "Loja virtual moderna com carrinho de compras, pagamento online e painel administrativo.",
-      tech: ["React", "Stripe", "MongoDB", "Express"],
-      category: "E-commerce",
-      githubUrl: "https://github.com/seu-usuario/link-do-E-commerce"
+      title: "Dashboard de Controle de Vendas",
+      category: "Business Intelligence",
+      imageUrl: "/images/portfolio/Embreve.png", // <--- ADICIONE UM PRINT DO DASHBOARD AQUI
+      description: `Criação de um painel estratégico em Power BI que transforma planilhas de Excel em insights visuais 
+      e acionáveis para a tomada de decisão.`,
+      tech: ["Power BI", "Excel", "Análise de Dados", "ETL"],
+      liveUrl: null, // Sem link ao vivo para este projeto
+      githubUrl: null, // Código privado
+      caseStudyUrl: "#", // <--- ADICIONE O LINK DO SEU BEHANCE AQUI
+    },
+    {
+      title: "Organização de Processos - CA Internet",
+      category: "Sistemas de Produtividade",
+      imageUrl: "/images/portfolio/Embreve.png", // <--- ADICIONE UM PRINT DO SISTEMA NOTION AQUI
+      description: `Desenvolvimento de uma Central de Operações (CO) em Notion contendo sessão comercial com funil de clientes, 
+      contratos, tarefas e implatação do projeto.`,
+      tech: ["Notion", "Gestão de Projetos", "Otimização de Processos"],
+      liveUrl: null, // Sem link ao vivo para este projeto
+      githubUrl: null,
+      caseStudyUrl: "#", // <--- ADICIONE O LINK DO SEU BEHANCE AQUI
+    },
 
-    },
     {
-      title: "Dashboard Analytics",
-      description: "Painel de controle com análise de dados em tempo real e relatórios customizados.",
-      tech: ["React", "D3.js", "Python", "Machine Learning"],
-      category: "Data Science",
-      githubUrl: "https://github.com/seu-usuario/link-do-Dashboard"
+      title: "Organização de Processos - Central de Marca",
+      category: "Sistemas de Produtividade",
+      imageUrl: "/images/portfolio/Embreve.png", // <--- ADICIONE UM PRINT DO SISTEMA NOTION AQUI
+      description: `Desenvolvimento de uma Central de Operações (CO) em Notion contendo sessão de Guia de marca, tarefas, 
+      funil de clientes e projetos.`,
+      tech: ["Notion", "Gestão de Projetos", "Otimização de Processos"],
+      liveUrl: null, // Sem link ao vivo para este projeto
+      githubUrl: null,
+      caseStudyUrl: "#", // <--- ADICIONE O LINK DO SEU BEHANCE AQUI
     },
-    {
-      title: "Site Institucional",
-      description: "Website corporativo com design moderno, otimizado para SEO e alta performance.",
-      tech: ["React", "Tailwind CSS", "Vite", "SEO"],
-      category: "Website",
-      githubUrl: "https://github.com/seu-usuario/link-do-site-institucional"
-    },
-    {
-      title: "App de Gerenciamento",
-      description: "Aplicação web para controle de estoque e relatórios gerenciais automatizados.",
-      tech: ["React", "Firebase", "Material-UI"],
-      category: "Aplicação Web",
-      githubUrl: "https://github.com/seu-usuario/link-do-site-app"
-    },
-    {
-      title: "Portal de Notícias",
-      description: "Sistema de publicação de conteúdo com área administrativa e sistema de comentários.",
-      tech: ["React", "WordPress API", "Redux"],
-      category: "Portal",
-      githubUrl: "https://github.com/seu-usuario/link-do-portal-de-noticias"
-    }
   ];
 
   return (
-  <section id="portfolio" className="py-20 px-4 bg-white">
-    <div className="container mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Portfólio</h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Alguns dos projetos que desenvolvi, demonstrando expertise em diferentes 
-          tecnologias e soluções personalizadas.
-        </p>
-      </div>
+    <section id="portfolio" className="py-20 px-4 bg-white">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-azul-vector mb-4">
+            Portfólio de Projetos
+          </h2>
+          <p className="text-xl text-texto-principal max-w-3xl mx-auto">
+            Conheça alguns dos projetos que desenvolvi, aplicando tecnologia e
+            estratégia para criar soluções de alto impacto.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-md group flex flex-col">
-            <CardHeader>
-              <div className="flex justify-between items-start mb-2">
-                <span className="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card
+              key={index}
+              className=" bg-white hover:shadow-xl transition-shadow duration-300 rounded-lg flex flex-col"
+            >
+              <img
+                src={project.imageUrl}
+                alt={`Imagem do projeto ${project.title}`}
+                className="rounded-t-lg w-full h-48 object-cover"
+              />
+              <CardHeader>
+                <span className="px-3 py-1 bg-verde-leap/20 text-verde-leap text-sm font-semibold rounded-full self-start mb-3">
                   {project.category}
                 </span>
-              </div>
-              <CardTitle className="text-xl text-gray-800 group-hover:text-blue-600 transition-colors">
-                {project.title}
-              </CardTitle>
-              <CardDescription className="text-gray-600">
-                {project.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col flex-grow justify-between">
-              <div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, idx) => (
-                    <span 
-                      key={idx}
-                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <CardTitle className="text-2xl text-azul-vector">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-texto-principal text-base pt-2">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-col flex-grow p-6">
+                <div className="flex-grow">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-1 bg-gray-200 text-gray-800 text-xs rounded font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-50"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Ver Projeto
-                </Button>
-                
-                {/* AQUI ESTÁ A LÓGICA ADICIONADA */}
-                {project.githubUrl && (
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="w-full flex-1 border-gray-600 text-gray-600 hover:bg-gray-50"
+                <div className="flex gap-2 justify-end items-center">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <Github className="h-4 w-4 mr-2" />
-                      GitHub
-                    </Button>
-                  </a>
-                )}
-                
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+                      <Button className="bg-verde-leap hover:bg-green-700 text-white flex-1">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Ver Projeto Online
+                      </Button>
+                    </a>
+                  )}
+                  {project.caseStudyUrl && project.caseStudyUrl !== "#" && (
+                    <a
+                      href={project.caseStudyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        variant="outline"
+                        className="border-azul-vector text-azul-vector hover:bg-azul-vector hover:text-white"
+                      >
+                        <BookText className="h-4 w-4 mr-2" />
+                        Estudo de Caso
+                      </Button>
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Ver código no GitHub"
+                    >
+                      <Github className="h-6 w-6 text-texto-principal hover:text-azul-vector transition-colors" />
+                    </a>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
-
-      <div className="text-center mt-12">
-        <p className="text-gray-600 mb-6">
-          Interessado em ver mais projetos ou discutir uma solução personalizada?
-        </p>
-        <Button 
-          size="lg"
-          onClick={() => {
-            const element = document.getElementById('contact');
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-        >
-          Vamos Conversar
-        </Button>
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 

@@ -1,17 +1,17 @@
-// Bibliotecas instaladas via NPM
+// Importando
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Toaster as Sonner } from "sonner"; // Usaremos apenas o Sonner para notificações
-
-// Componente de UI instalado via Shadcn
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 
-// Seus componentes de página
-import Index from "./components/pages/Index";
+import Header from "./components/pages/Header";
+import HeroSection from "./components/pages/Hero";
+import Services from "./components/pages/Services";
+import About from "./components/pages/About";
+import Portfolio from "./components/pages/Portfolio";
 import Contact from "./components/pages/Contact";
-import NotFound from "./components/pages/NotFound";
+import Footer from "./components/pages/Footer";
 
-// Crie o cliente do React Query
 const queryClient = new QueryClient();
 
 function App() {
@@ -20,18 +20,20 @@ function App() {
     <QueryClientProvider client={queryClient}>
       {/* O provider do Tooltip envolve tudo */}
       <TooltipProvider>
-        {/* O provider de Rotas */}
-        <BrowserRouter>
-          {/* As notificações/toasts do Sonner */}
-          <Sonner richColors />
+        {/* O Toaster do Sonner para as notificações */}
+        <Toaster richColors />
 
-          {/* Definição das suas rotas/páginas */}
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <div>
+          <Header />
+          <main>
+            <HeroSection />
+            <Services />
+            <About />
+            <Portfolio />
+            <Contact />
+          </main>
+          <Footer /> {/* <-- 2. Adicione o Footer no final */}
+        </div>
       </TooltipProvider>
     </QueryClientProvider>
   );
