@@ -5,9 +5,7 @@ import {
   MapPin,
   Linkedin,
   Instagram,
-  Github,
   Facebook,
-  Layers,
   MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
