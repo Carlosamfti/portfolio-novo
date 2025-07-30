@@ -78,7 +78,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={social.name}
+                  aria-label={`Visite o perfil da VectorLeap no ${social.name}`}
                 >
                   <social.icon className="h-7 w-7 hover:scale-110 transition-transform" />
                 </a>

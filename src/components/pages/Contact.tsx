@@ -131,9 +131,12 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={social.name}
+                    aria-label={`Visite o perfil da VectorLeap no ${social.name}`}
                   >
-                    <social.icon className="h-8 w-8 text-texto-principal hover:text-verde-leap transition-colors" />
+                    <social.icon
+                      aria-hidden="true"
+                      className="h-8 w-8 text-texto-principal hover:text-verde-leap transition-colors"
+                    />
                   </a>
                 ))}
               </div>
